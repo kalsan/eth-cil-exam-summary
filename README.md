@@ -12,7 +12,7 @@ This is a fork of the repos of *mohlerm*.
 
 *By mohlerm:*
 
-This is largely based on ![Gregor Wegberg's](https://github.com/groggi) great ![CIL Exam 2015 Summary](https://github.com/groggi/eth-cil-exam-summary).
+This is largely based on [Gregor Wegberg's](https://github.com/groggi) great [CIL Exam 2015 Summary](https://github.com/groggi/eth-cil-exam-summary).
 It has been adapted to the new lecture content of 2016 and modified to suit our needs.
 
 # Download original version from mohlerm
