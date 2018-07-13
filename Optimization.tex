@@ -1,0 +1,52 @@
+% !TEX root = Main.tex
+\section{Optimization}
+
+\subsection*{Alternating Least Squares}
+$f(U,v_i)=\sum_{(i,j)\in I} (a_{i,j} - \langle u_j, v_i \rangle)^2$\\
+$f(u_i,V)=\sum_{(i,j)\in I} (a_{i,j} - \langle u_j, v_i \rangle)^2$\\
+Least squares problems which are convex.
+
+
+\subsection*{Coordinate Descent}
+1. init: $\mathbf{x}^{(0)} \in \mathbb{R}^D$\\
+2. for $t = 0 \ \text{to} \ \mathit{maxIter}$:\\
+3. sample $d \in_{u.a.r.} \{1, \ldots, D\}$\\
+4. $u^\star = \argmin_{u \in \mathbb{R}} f(x_1^{(t)}, .., x_{d-1}^{(t)}, u, x_{d+1}^{(t)}, .., x_D^{(t)})$\\
+5. $\mathbf{x}_d^{(t+1)} = u^\star$ and $\mathbf{x}_i^{(t+1)} = \mathbf{x}_i^{(t)}$ for $i \neq d$
+
+\subsection*{Gradient Descent (or Deepest Descent)}
+\textbf{Gradient}: $\nabla f(\mathbf{x}) := \left( \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}_1}, \ldots, \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}_D} \right)^\top$
+
+1. init: $\mathbf{x}^{(0)} \in \mathbb{R}^D$\\
+2. for $t = 0 \ \text{to} \ \mathit{maxIter}$:\\
+3. $\mathbf{x}^{(t+1)} = \mathbf{x}^{(t)} - \gamma \nabla f(\mathbf{x}^{(t)})$, usually $\gamma \approx \frac{1}{t}$
+
+\subsection*{Stochastic Gradient Descent (SGD)}
+Assume \textbf{Additive Objective}:\\
+$f(x) = \frac{1}{N}\sum_{n=1}^{N}f_n(x)$\\
+1. init: $\mathbf{x}^{(0)} \in \mathbb{R}^D$\\
+2. for $t = 0 \ \text{to} \ \mathit{maxIter}$:\\
+3. sample $n \in_{u.a.r.} \{1, \ldots, N\}$\\
+4. $\mathbf{x}^{(t+1)} = \mathbf{x}^{(t)} - \gamma \nabla f_n(\mathbf{x}^{(t)})$, typically  $\gamma \approx \frac{1}{t}$.
+
+\subsection*{Projected Gradient Descent (Constrained Opt.)}
+minimize $f(x)$, $x \in Q$ (constraint).\\
+\textbf{Project} $x$ onto $Q$: $P_Q(\mathbf{x}) = \argmin_{y \in Q} \|\mathbf{y} - \mathbf{x}\|$,\\
+\textbf{Update}: $\mathbf{x}^{(t+1)} = P_Q[\mathbf{x}^{(t)} - \gamma \nabla f(\mathbf{x}^{(t)})]$,\\
+$\mathbf{x}^{(t+1)}$ is unique if $Q$ convex.
+
+\subsection*{Lagrangian Multipliers}
+Minimize  $f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0,\ i = 1, .., m$ (\textbf{inequality constr.}) and $h_i(\mathbf{x}) = \mathbf{a}_i^\top \mathbf{x} - b_i = 0,\ i = 1, .., p$ (\textbf{equality constraint})
+\begin{compactdesc}
+	\item[Lagrangian:] $L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) := f(\mathbf{x}) + \sum_{i=1}^m \lambda_i g_i(\mathbf{x}) + \sum_{i=1}^p \nu_i h_i(\mathbf{x})$
+	\item[Dual function:] $D(\boldsymbol{\lambda}, \boldsymbol{\nu}) := \inf_{\mathbf{x}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) \in \mathbb{R}$
+	\item[Dual Problem:] $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu})$ s.t. $\boldsymbol{\lambda} \geq \mathbf{0}$. Note: $\max_{\boldsymbol{\lambda}, \boldsymbol{\nu}} D(\boldsymbol{\lambda}, \boldsymbol{\nu}) \le \min_\mathbf{x}{f(\mathbf{x})}$, equality if $dom\ f$ and $f$ convex
+\end{compactdesc}
+
+\subsection*{Convex Optimization}
+Def.: $\{(x,t)|x \in dom f, f(x) \leq t\}$, $f : \mathbb{R}^D \rightarrow \mathbb{R}$ is convex, if $dom\ f$ is a convex set, and if $\forall \mathbf{x}, \mathbf{y} \in dom\ f$, and for $0 \leq \alpha \leq 1$: $f(\alpha \mathbf{x} + (1 - \alpha)\mathbf{y}) \leq \alpha f(\mathbf{x}) + (1-\alpha)f(\mathbf{y})$. local=global min, \textbf{Convergence}: $f(\mathbf{x}^{(t)}) - f(\mathbf{x}^*) \le \frac{c}{t}$.
+\textbf{Subgradient} $g \in \mathbb{R}^D$ of $f$ at $\mathbf{x}$: $f(\mathbf{y}) \geq f(\mathbf{x}) + g^\top(\mathbf{y}-\mathbf{x}) \ \forall \mathbf{y}$
+
+\subsection*{Convex Relaxation}
+Replace non-convex rank constraints by convex norm constraints.\\
+Nuclear norm: $||A||_* = \sum_i \sigma_i$
