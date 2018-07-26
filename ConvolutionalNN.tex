@@ -9,7 +9,7 @@ multiclass (soft-max):\\
 $\hat{y_k} = \text{P}[Y=k|\mathbf{x}]= \frac{\exp[\langle \mathbf{w}_k^L,\mathbf{x}^{L-1}\rangle]}{\sum_{m=1}^{K}{\exp[\langle \mathbf{w}_m^L, \mathbf{x}^{L-1}\rangle]}}$.\\
 \textbf{Loss function} squared loss: $\frac{1}{2}(y - \hat{y})^2$\\
 cross-entropy loss: $-y \log \hat{y} - (1-y)\log(1-\hat{y})$.\\
-\textbf{Units and Layers}: layer-to-layer fwd. prop. notation: $\mathbf{x}^{l} = \sigma^{l}\left(\mathbb{W}^{\left(l\right)}\mathbf{x}^{\left(l-1\right)}\right)$. L-layer network: $\mathbf{y}=\sigma^{\left(L\right)}\left(\mathbf{W}^(L)\sigma^{(L-1)}\left(\cdots\left(\sigma^{(1)}\left(\mathbf{W}^{(1)}\mathbf{x}\right)\cdots\right)\right)\right)$
+\textbf{Units and Layers}: layer-to-layer fwd. prop. notation: $\mathbf{x}^{l} = \sigma^{l}\left(\mathbb{W}^{\left(l\right)}\mathbf{x}^{\left(l-1\right)}\right)$. L-layer network: $\mathbf{y}=\sigma^{\left(L\right)}\left(\mathbf{W}^{(L)}\sigma^{(L-1)}\left(\cdots\left(\sigma^{(1)}\left(\mathbf{W}^{(1)}\mathbf{x}\right)\cdots\right)\right)\right)$
 
 \subsection*{Backpropagation}
 Layer-to-layer Jacobian: $\mathbf{x}$ = prev. layer activation, $\mathbf{x^+}$ = next layer activation. Jacobian matrix $\mathbf{J}$ = $J_{ij}$ of mapping $\mathbf{x}\rightarrow\mathbf{x^+}$, $\mathbf{x_i^+} = \sigma(\mathbf{w}_i^\top\mathbf{x})$, $J_{ij} = \frac{\partial \mathbf{x_i^+}}{\partial \mathbf{x}_j} = w_{ij}\cdot\sigma'(\mathbf{w}_i^\top\mathbf{x})$.\\
