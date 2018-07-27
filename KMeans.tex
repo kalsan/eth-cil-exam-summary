@@ -1,5 +1,5 @@
 % !TEX root = Main.tex
-\section{K-means Algorithm}
+\section{K-Means}
 \textbf{Target:} $\min_{\mathbf{U}, \mathbf{Z}} J(\mathbf{U}, \mathbf{Z}) = \|\mathbf{X} - \mathbf{U} \mathbf{Z}\|_F^2$\\
 $= \sum_{n=1}^N \sum_{k=1}^K \mathbf{z}_{k,n} \|\mathbf{x}_n - \mathbf{u}_k\|_2^2$\\
 1. \textbf{Initiate:} choose $K$ centroids $\mathbf{U} = [\mathbf{u}_1, \ldots, \mathbf{u}_K]$\\
@@ -7,3 +7,10 @@ $= \sum_{n=1}^N \sum_{k=1}^K \mathbf{z}_{k,n} \|\mathbf{x}_n - \mathbf{u}_k\|_2^
 3. \textbf{Update} centroids: $\mathbf{u}_k = \frac{\sum_{n=1}^N z_{k,n} \mathbf{x}_n}{\sum_{n=1}^N z_{k,n}}$.\\
 4. Repeat from step 2, stops if $\|\mathbf{Z} - \mathbf{Z}^\text{new}\|_0 = \|\mathbf{Z} - \mathbf{Z}^\text{new}\|^2_F = 0$.\\
 Computational cost: $O(k\cdot n \cdot d)$
+
+\subsection{K-Means++}
+Initialize cluster centers ``most far apart'' based on data points. $D(x)$ shortest distance from data point to closest, already chosen center.\\
+1. Set center $c_1$, chosen uniformly at random from $\mathcal{X}$.\\
+2. Assign new center $c_i$, choosing $x \in \mathcal{X}$ with $p = \tfrac{D(x)^2}{\sum_{x \in \mathcal{X}} D(x)^2}$.\\
+3. Repeat 2 until $i = k$ for $k$ centers.\\
+4. Continue with K-Means.

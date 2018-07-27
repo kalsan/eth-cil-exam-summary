@@ -1,20 +1,20 @@
 % !TEX root = Main.tex
 \section{Neural Networks}
 \textbf{Neurons}: $F_\sigma(\mathbf{x};\mathbf{w}) = \sigma(w_0 + \sum_{i=1}^M{x_iw_i})$.\\
-\textbf{Activation}: tanh, ReLu, $s(x)=\frac{1}{1+e^{-x}}$, $s'(x)=s(x)(1-s(x))$\\
-\textbf{Output}: linear regression: $\hat{\mathbf{y}} = \mathbf{W}^L\mathbf{x}^{L-1}$\\
-binary classification (logistic):\\
+\textbf{Activation}: $s(x)=\frac{1}{1+e^{-x}}$, $s'(x)=s(x)(1-s(x))$; $tanh(x) = \tfrac{sinh(x)}{cosh(x)}$, $tanh'(x) = 1 - tanh^2(x)$;  $ReLU(x) = max(0, x)$, $ReLU'(x) = 0\  or\  1$\\
+\textbf{Output}: Linear Regression: $\hat{\mathbf{y}} = \mathbf{W}^L\mathbf{x}^{L-1}$\\
+Binary Classification (Logistic):\\
 $\hat{y_1} = \text{P}[Y=1|\mathbf{x}] = \frac{1}{1 + \exp[-\langle \mathbf{w}_1^L,\mathbf{x}^{L-1}\rangle]}$\\
-multiclass (soft-max):\\
+Multiclass (Softmax):\\
 $\hat{y_k} = \text{P}[Y=k|\mathbf{x}]= \frac{\exp[\langle \mathbf{w}_k^L,\mathbf{x}^{L-1}\rangle]}{\sum_{m=1}^{K}{\exp[\langle \mathbf{w}_m^L, \mathbf{x}^{L-1}\rangle]}}$.\\
-\textbf{Loss function} squared loss: $\frac{1}{2}(y - \hat{y})^2$\\
-cross-entropy loss: $-y \log \hat{y} - (1-y)\log(1-\hat{y})$.\\
-\textbf{Units and Layers}: layer-to-layer fwd. prop. notation: $\mathbf{x}^{l} = \sigma^{l}\left(\mathbb{W}^{\left(l\right)}\mathbf{x}^{\left(l-1\right)}\right)$. L-layer network: $\mathbf{y}=\sigma^{\left(L\right)}\left(\mathbf{W}^{(L)}\sigma^{(L-1)}\left(\cdots\left(\sigma^{(1)}\left(\mathbf{W}^{(1)}\mathbf{x}\right)\cdots\right)\right)\right)$
+\textbf{Loss Function:} Squared Loss $\frac{1}{2}(y - \hat{y})^2$\\
+Cross-Entropy Loss: $-y \log \hat{y} - (1-y)\log(1-\hat{y})$.\\
+\textbf{Units \& Layers}: FW Prop: $\mathbf{x}^{l} = \sigma^{l}\left(\mathbb{W}^{\left(l\right)}\mathbf{x}^{\left(l-1\right)}\right)$. L-layer network: $\mathbf{y}=\sigma^{\left(L\right)}\left(\mathbf{W}^{(L)}\sigma^{(L-1)}\left(\cdots\left(\sigma^{(1)}\left(\mathbf{W}^{(1)}\mathbf{x}\right)\cdots\right)\right)\right)$
 
-\subsection*{Backpropagation}
-Layer-to-layer Jacobian: $\mathbf{x}$ = prev. layer activation, $\mathbf{x^+}$ = next layer activation. Jacobian matrix $\mathbf{J}$ = $J_{ij}$ of mapping $\mathbf{x}\rightarrow\mathbf{x^+}$, $\mathbf{x_i^+} = \sigma(\mathbf{w}_i^\top\mathbf{x})$, $J_{ij} = \frac{\partial \mathbf{x_i^+}}{\partial \mathbf{x}_j} = w_{ij}\cdot\sigma'(\mathbf{w}_i^\top\mathbf{x})$.\\
-Across multiple layers:\\
-$\frac{\partial\mathbf{x}^{(l)}}{\partial\mathbf{x}^{(l-n)}} = \mathbf{J}^{(l)}\cdot\frac{\partial\mathbf{x}^{(l-1)}}{\partial\mathbf{x}^{(l-n)}}=\mathbf{J}^{(l)}\cdot\mathbf{J}^{(l-1)}\cdots\mathbf{J}^{(l-n+1)}$ and then back prop. $ \nabla_{x^{(l)}}^\top\ell=\nabla_{y}^\top\ell\cdot\mathbf{J}^{(L)}\cdots\mathbf{J}^{(l+1)}$
+\subsection*{Backpropagation (L2L Jacobian)}
+$\mathbf{x}$ = Prev Layer Act, $\mathbf{x^+}$ = Curr Layer Act\\$\mathbf{J}$ = $J_{ij}$ (Jacobian of mapping $\mathbf{x}\rightarrow\mathbf{x^+}$)\\ $\mathbf{x_i^+} = \sigma(\mathbf{w}_i^\top\mathbf{x})$, $J_{ij} = \frac{\partial \mathbf{x_i^+}}{\partial \mathbf{x}_j} = w_{ij}\cdot\sigma'(\mathbf{w}_i^\top\mathbf{x})$.\\
+Multi-Layer (First FW, then BW):\\
+$\frac{\partial\mathbf{x}^{(l)}}{\partial\mathbf{x}^{(l-n)}} = \mathbf{J}^{(l)}\cdot\frac{\partial\mathbf{x}^{(l-1)}}{\partial\mathbf{x}^{(l-n)}}=\mathbf{J}^{(l)}\cdot\mathbf{J}^{(l-1)}\cdots\mathbf{J}^{(l-n+1)}$, then BP $ \nabla_{x^{(l)}}^\top\ell=\nabla_{y}^\top\ell\cdot\mathbf{J}^{(L)}\cdots\mathbf{J}^{(l+1)}$
 
-\subsection*{Neural Networks for Images}
-Translation invariance of images $\rightarrow$ neurons compute same fct, shift invariant filters; weights defined as filter masks, e.g. convolution: $F_{n,m}(\mathbf{x};\mathbf{w}) = \sigma(b + \sum_{k=-2}^2\sum_{l=-2}^{2}{w_{k,l}x_{n+k,m+l}})$. To reduce dimension of convolution, use \{max, avg\}-pooling
+\subsection*{Convolutional Neural Networks}
+Translation invariance of images $\rightarrow$ neurons compute same func, shift invariant filters; weights defined as filter masks, e.g. convolution: $F_{n,m}(\mathbf{x};\mathbf{w}) = \sigma(b + \sum_{k=-2}^2\sum_{l=-2}^{2}{w_{k,l}x_{n+k,m+l}})$. To reduce dimension of convolution, use \{max, avg\}-pooling. Alternative: Strides (usually 2) on conv-layers for up/down-sampling.
