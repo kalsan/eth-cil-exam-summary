@@ -56,6 +56,12 @@ $\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$\quad
 $\frac{\partial}{\partial \mathbf{X}} \mathbf{Tr}(\mathbf{X})=\mathbf{I}$ \\
 $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{Ax - b}\|_2^2) = \mathbf{2(A^\top Ax-A^\top b)}$
 
+\subsection*{Convexity}
+Conv. function: $f: X\rightarrow \mathbb{R}$, $X$ convex: $\forall x,y\in X, \forall t \in [0,1] : f(tx+(1-t)y)\leq tf(x)+(1-t)f(y)$\\
+Conv. set:$\forall \lambda >0, \sum_\lambda = 1, u_k\in S: \sum_{k=1}^{n}\lambda_k u_k \in S$\\
+E.g. $\emptyset$ convex, $S, T$ convex $\Rightarrow S\cap T$ convex\\
+Thm.: A 2x differenciable fct. is convex on a convex set iff its Hessian is p.s.d. on that set.
+
 \subsection*{Eigenvalue / -vectors}
 Eigenvalue Problem: $\mathbf{Ax} = \lambda \mathbf{x}$\\
 1. solve $\operatorname{det}(\mathbf{A} - \lambda \mathbf{I}) \overset{!}{=} 0$ resulting in $\{\lambda_i\}_i$\\
