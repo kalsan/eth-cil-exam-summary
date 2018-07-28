@@ -7,6 +7,10 @@
 	\item $z=Ax\Leftrightarrow z_i=\sum_k a_{ik} x_k$
 	\item $z^\top = y^\top A \Leftrightarrow z_i = \sum_k a_{ki} y_k$
 	\item $A\cdot B=(A B^{(1)}\hspace{1pt} AB^{(2)}\hspace{1pt} \dots)=(A^{[1]}B\hspace{3pt}A^{[2]}B\hspace{3pt}\dots)^\top$
+	\item $\mathbf{Ker}(A)=\{x|Ax=0\}$, $\mathbf{Im}(A)=\{y|\exists x.Ax=y\}$
+	\item $\mathbf{Rank}(A) = dim(\mathbf{Im}(A))$
+	\item $\mathbf{Rank}(A\cdot B) \leq min(\mathbf{Rank}(A), \mathbf{Rank}(B))$
+	\item $dim(A)=\mathbf{Rank}(A) + dim(\mathbf{Ker}(A))$
 	\item[det(A)=0:] $\exists$ linear dependent cols/rows
 	\item[det(A)!=0:] $A$ regular, $Ax=b$ has 1 sol., $\exists A^{-1}$, $im(A)=\mathbb{M}^n, ker(A)=0$, 0 is not EW of $A$
 	\item[Orthogonal:] cols. orthonormal, $\mathbf{A}^{-1} = \mathbf{A}^\top$, $\mathbf{A} \mathbf{A}^\top = \mathbf{A}^\top \mathbf{A} = \mathbf{I}$, $\operatorname{det}(\mathbf{A}) \in \{+1, -1\}$, $\operatorname{det}(\mathbf{A}^\top \mathbf{A}) = 1$, $(t\cdot A)^{-1}=1/t\cdot A^{-1}$, $A, B: orth \implies A\cdot B: orth$, Preserves norm ($||Ax||=x$), inner prod., dist., angle
