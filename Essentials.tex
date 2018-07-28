@@ -30,7 +30,7 @@ $\|\mathbf{x}\|_0 = |\{i | x_i \neq 0\}|$ \qquad $\|\mathbf{x}\|_2 = \sqrt{\sum_
 $\|\mathbf{x}\|_p = \left( \sum_{i=1}^{N} |x_i|^p \right)^{\frac{1}{p}}$\\
 $\|\mathbf{M}\|_F =\allowbreak \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n}\mathbf{m}_{i,j}^2} =\allowbreak \sqrt{\sum_{i=1}^{\min\{m, n\}} \sigma_i^2} = \sqrt{trace(A^\top A)}$\\
 $\|\mathbf{M}\|_1 = \sum_{i,j} | m_{i,j}|$ \qquad $\|\mathbf{M}\|_2 = \sigma_{\text{max}}(\mathbf{M})$\\
-$\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p}$ \qquad $\|\mathbf{M}\|_\star = \sum_{i=1}^{\min(m, n)} \sigma_i$
+$\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p}$ \qquad $\|\mathbf{M}\|_\star = \sum_{i=1}^{\min(m, n)} \sigma_i$ \qquad $\|\mathbf{M}\|_G = \sqrt{\sum_{i,j} \mathbf{g}_{ij} \mathbf{m}_{ij}^2}$
 
 \subsection*{Derivatives}
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{b}^\top \mathbf{x}) = \frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{b}) = \mathbf{b}$ \quad
