@@ -13,9 +13,9 @@
 	\item $dim(A)=\mathbf{Rank}(A) + dim(\mathbf{Ker}(A))$
 	\item[det(A)=0:] $\exists$ linear dependent cols/rows
 	\item[det(A)!=0:] $A$ regular, $Ax=b$ has 1 sol., $\exists A^{-1}$, $im(A)=\mathbb{M}^n, ker(A)=0$, 0 is not EW of $A$
-	\item[Orthogonal:] cols. orthonormal, $\mathbf{A}^{-1} = \mathbf{A}^\top$, $\mathbf{A} \mathbf{A}^\top = \mathbf{A}^\top \mathbf{A} = \mathbf{I}$, $\operatorname{det}(\mathbf{A}) \in \{+1, -1\}$, $\operatorname{det}(\mathbf{A}^\top \mathbf{A}) = 1$, $(t\cdot A)^{-1}=1/t\cdot A^{-1}$, $A, B: orth \implies A\cdot B: orth$, Preserves norm ($||Ax||=x$), inner prod., dist., angle
-	\item[Positive semi-definite:] $\forall x, x^\top A x \geq 0$
-	\item[Idempotence:] $A^2 = A$
+	\item[Orthogonal:] cols. orthonormal, $\mathbf{A}^{-1} = \mathbf{A}^\top$, $\mathbf{A} \mathbf{A}^\top = \mathbf{A}^\top \mathbf{A} = \mathbf{I}$, $\operatorname{det}(\mathbf{A}) \in \{+1, -1\}$, $\operatorname{det}(\mathbf{A}^\top \mathbf{A}) = 1$, $(t\cdot A)^{-1}=1/t\cdot A^{-1}$, $A, B: orth \implies A\cdot B: orth$, Preserves norm ($||Ax||=x$), inner prod., dist., angle, EWs are on unit circle, EVs are unitary
+	\item[Positive semi-definite:] $\forall x, x^\top A x \geq 0$, $Tr(A)\geq 0$, $A^{-1}$ psd., $\exists B . A=BB^\top$ with $\mathbf{Rank}(A)=\mathbf{Rank}(B)$, $x^\top A x = 0 \Rightarrow A x = 0$ $X\in \mathbb{R}^{n,r}, n\leq r, rank(X)=n \Rightarrow XX^\top$ psd.
+	\item[Itempot.:] $A^2 = A$, $I-A$ idp. and $A(I-A)=0$, $rank(A)=tr(A)$, $CD$ idp. $\Rightarrow$ $CD=DC$, $f(sI+tA)=(I-A)f(s)+A f(s+t)$
 	\item[Inner Product:] $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^\top \mathbf{y} = \sum_{i=1}^{N} \mathbf{x}_i \mathbf{y}_i$.
 	\begin{inparaitem}
 		\item $\langle \mathbf{x} \pm \mathbf{y}, \mathbf{x} \pm \mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{x} \rangle \pm 2 \langle \mathbf{x}, \mathbf{y} \rangle + \langle \mathbf{y}, \mathbf{y} \rangle$
