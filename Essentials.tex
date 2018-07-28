@@ -6,9 +6,12 @@
 	\item $A^\top\cdot B = C \Leftrightarrow c_{ik}=a_i^\top \cdot b_k$
 	\item $z=Ax\Leftrightarrow z_i=\sum_k a_{ik} x_k$
 	\item $z^\top = y^\top A \Leftrightarrow z_i = \sum_k a_{ki} y_k$
+	\item $A\cdot B=(A B^{(1)}\hspace{1pt} AB^{(2)}\hspace{1pt} \dots)=(A^{[1]}B\hspace{3pt}A^{[2]}B\hspace{3pt}\dots)^\top$
 	\item[det(A)=0:] $\exists$ linear dependent cols/rows
 	\item[det(A)!=0:] $A$ regular, $Ax=b$ has 1 sol., $\exists A^{-1}$, $im(A)=\mathbb{M}^n, ker(A)=0$, 0 is not EW of $A$
 	\item[Orthogonal:] cols. orthonormal, $\mathbf{A}^{-1} = \mathbf{A}^\top$, $\mathbf{A} \mathbf{A}^\top = \mathbf{A}^\top \mathbf{A} = \mathbf{I}$, $\operatorname{det}(\mathbf{A}) \in \{+1, -1\}$, $\operatorname{det}(\mathbf{A}^\top \mathbf{A}) = 1$, $(t\cdot A)^{-1}=1/t\cdot A^{-1}$, $A, B: orth \implies A\cdot B: orth$, Preserves norm ($||Ax||=x$), inner prod., dist., angle
+	\item[Positive semi-definite:] $\forall x, x^\top A x \geq 0$
+	\item[Idempotence:] $A^2 = A$
 	\item[Inner Product:] $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^\top \mathbf{y} = \sum_{i=1}^{N} \mathbf{x}_i \mathbf{y}_i$.
 	\begin{inparaitem}
 		\item $\langle \mathbf{x} \pm \mathbf{y}, \mathbf{x} \pm \mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{x} \rangle \pm 2 \langle \mathbf{x}, \mathbf{y} \rangle + \langle \mathbf{y}, \mathbf{y} \rangle$
@@ -18,7 +21,8 @@
 		\item If $\mathbf{y}$ is a unit vector then $\langle \mathbf{x}, \mathbf{y} \rangle$ projects $\mathbf{x}$ onto $\mathbf{y}$
 	\end{inparaitem}
 	\item[Outer Product:] $\mathbf{u} \mathbf{v}^\top$, $(\mathbf{u} \mathbf{v}^\top)_{i, j} = \mathbf{u}_i \mathbf{v}_j$
-	\item[Transpose:] $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$
+	\item[Transp. + Inv.:] $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$
+	\item[Orth. proj.:] $P_y(x)=y y^\top x / ||y||^2_2 = <x,y>y$
 \end{compactdesc}
 
 \subsection*{Norms}
