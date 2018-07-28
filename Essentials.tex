@@ -32,6 +32,7 @@
 	\item[Orth. proj.:] $P_y(x)=y y^\top x / ||y||^2_2 = <x,y>y$
 	\item[Proj. to orth. compl.:] $v-<u,v>u$
 	\item[Householder-Refl.:] $H_u=I-2uu^\top$ sym.+orth.
+	\item[Jacobian:] $D f(x)=(\frac{\partial f_i(x)}{\partial x_j})_{i=1..m, j=1..n} \in \mathbb{R}^{m\cdot n}$
 \end{compactdesc}
 
 \subsection*{Norms}
@@ -44,13 +45,15 @@ $\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\
 \subsection*{Derivatives}
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{b}^\top \mathbf{x}) = \frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{b}) = \mathbf{b}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$\\
+$\frac{\partial}{\partial \mathbf{x}}(f(\mathbf{x})^\top\cdot g(\mathbf{x})) = f(\mathbf{x})^\top \frac{\partial g(\mathbf{x})}{\partial \mathbf{x}} + g(\mathbf{x})^\top \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}}$\\
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{A}\mathbf{x}) = (\mathbf{A}^\top + \mathbf{A})\mathbf{x}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{b}^\top \mathbf{A}\mathbf{x}) = \mathbf{A}^\top \mathbf{b}$\\
 $\frac{\partial}{\partial \mathbf{X}}(\mathbf{c}^\top \mathbf{X} \mathbf{b}) = \mathbf{c}\mathbf{b}^\top$ \quad
 $\frac{\partial}{\partial \mathbf{X}}(\mathbf{c}^\top \mathbf{X}^\top \mathbf{b}) = \mathbf{b}\mathbf{c}^\top$\\
 $\frac{\partial}{\partial \mathbf{x}}(\| \mathbf{x}-\mathbf{b} \|_2) = \frac{\mathbf{x}-\mathbf{b}}{\|\mathbf{x}-\mathbf{b}\|_2}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{x}\|^2_2) = \frac{\partial}{\partial \mathbf{x}} (\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$\\
-$\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$ \\
+$\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$\quad
+$\frac{\partial}{\partial \mathbf{X}} \mathbf{Tr}(\mathbf{X})=\mathbf{I}$ \\
 $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{Ax - b}\|_2^2) = \mathbf{2(A^\top Ax-A^\top b)}$
 
 \subsection*{Eigenvalue / -vectors}
