@@ -10,7 +10,8 @@ $\mathbf{X} \in \mathbb{R}^{D \times N}$. $N$ observations, $K$ rank.\\
 7. Reconstruct to original Basis: $\tilde{\overline{\mathbf{X}}} = \mathbf{U}_k \overline{\mathbf{Z}}_K$.\\
 8. Reverse centering: $\tilde{\mathbf{X}} = \tilde{\overline{\mathbf{X}}} + \mathbf{M}$.\\
 For compression save $\mathbf{U}_k, \overline{\mathbf{Z}}_K, \overline{\mathbf{x}}$.\\
-$\mathbf{U}_k \in \mathbb{R}^{D \times K}, \boldsymbol{\Sigma} \in \mathbb{R}^{D \times D}, \overline{\mathbf{Z}}_K \in \mathbb{R}^{K \times N}, \overline{\mathbf{X}} \in \mathbb{R}^{D \times N}$
+$\mathbf{U}_k \in \mathbb{R}^{D \times K}, \boldsymbol{\Sigma} \in \mathbb{R}^{D \times D}, \overline{\mathbf{Z}}_K \in \mathbb{R}^{K \times N}, \overline{\mathbf{X}} \in \mathbb{R}^{D \times N}$\\
+\textbf{Note:} $Var[z]=u^\top \Sigma u$\qquad \textbf{err:} $||\tilde{X}-\bar{X}||_F^2$
 
 %\subsection*{Iterative View}
 %Residual $r_i$: $x_i - \tilde{x}_i = I - uu^T  x_i$\\
