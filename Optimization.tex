@@ -1,7 +1,6 @@
 % !TEX root = Main.tex
 \section{Optimization}
-
-\textbf{TODO: Verify for completion (e.g. extend Lagrangian, nuclear norm (convex opt))} % TODO
+% TODO:Verify for completion (e.g. extend Lagrangian, nuclear norm (convex opt)
 
 \subsection*{Alternating Least Squares}
 $f(U,v_i)=\sum_{(i,j)\in I} (a_{i,j} - \langle u_j, v_i \rangle)^2$\\
@@ -46,7 +45,12 @@ Minimize  $f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0,\ i = 1, .., m$ (\textbf{
 \end{compactdesc}
 
 \subsection*{Convex Optimization}
-Def.: $\{(x,t)|x \in dom f, f(x) \leq t\}$, $f : \mathbb{R}^D \rightarrow \mathbb{R}$ is convex, if $dom\ f$ is a convex set, and if $\forall \mathbf{x}, \mathbf{y} \in dom\ f$, and for $0 \leq \alpha \leq 1$: $f(\alpha \mathbf{x} + (1 - \alpha)\mathbf{y}) \leq \alpha f(\mathbf{x}) + (1-\alpha)f(\mathbf{y})$. local=global min, \textbf{Convergence}: $f(\mathbf{x}^{(t)}) - f(\mathbf{x}^*) \le \frac{c}{t}$.
+Conv. \textbf{fct.}: \textbf{dom:=}$\{(x,t)|x \in dom f, f(x) \leq t\}$, $f : \mathbb{R}^D \rightarrow \mathbb{R}$ is convex, if $dom\ f$ is a convex set, and if $\forall \mathbf{x}, \mathbf{y} \in dom\ f$, and for $0 \leq \alpha \leq 1$: $f(\alpha \mathbf{x} + (1 - \alpha)\mathbf{y}) \leq \alpha f(\mathbf{x}) + (1-\alpha)f(\mathbf{y})$.\\
+$\Rightarrow$ local=global min\\
+Conv. \textbf{set:}$\forall \lambda >0, \sum_\lambda = 1, u_k\in S: \sum_{k=1}^{n}\lambda_k u_k \in S$\\
+E.g. $\emptyset$ convex, $S, T$ convex $\Rightarrow S\cap T$ convex\\
+Thm.: A 2x differenciable fct. is convex on a convex set iff its Hessian is p.s.d. on that set.\\
+\textbf{Convergence}: $f(\mathbf{x}^{(t)}) - f(\mathbf{x}^*) \le \frac{c}{t}$.\\
 \textbf{Subgradient} $g \in \mathbb{R}^D$ of $f$ at $\mathbf{x}$: $f(\mathbf{y}) \geq f(\mathbf{x}) + g^\top(\mathbf{y}-\mathbf{x}) \ \forall \mathbf{y}$
 
 \subsection*{Convex Relaxation}
