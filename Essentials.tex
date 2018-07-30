@@ -42,6 +42,15 @@ $\|\mathbf{M}\|_F =\allowbreak \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n}\mathbf{m}_{i,
 $\|\mathbf{M}\|_1 = \sum_{i,j} | m_{i,j}|$ \qquad $\|\mathbf{M}\|_2 = \sigma_{\text{max}}(\mathbf{M})$\\
 $\|\mathbf{M}\|_p = \max_{\mathbf{v} \neq 0} \frac{\|\mathbf{M}\mathbf{v}\|_p}{\|\mathbf{v}\|_p}$ \qquad $\|\mathbf{M}\|_\star = \sum_{i=1}^{\min(m, n)} \sigma_i$ \qquad $\|\mathbf{M}\|_G = \sqrt{\sum_{i,j} \mathbf{g}_{ij} \mathbf{m}_{ij}^2}$
 
+\subsection*{Sums}
+$\sum_{n=a}^b f(n) = \sum_{n=0}^b f(n) - \sum_{n=0}^{n-1} f(n)$\\
+$\sum_{n=s}^{t} f(n)=\sum_{n=s+p}^{t+p}f(n-p)$\\
+$\sum_{n\in B} f(n) = \sum_{m\in A} f(\sigma (m))$ for $\sigma : A\rightarrow B$ bij.\\
+$\sum_{k\leq j \leq i \leq n}a_{ij} = \sum_{i=k}^n \sum_{j=k}^i a_{ij} = \sum_{j=0}^{n-k}\sum_{i=k}^{n-j} a_{i+j, i}$\\
+$\sum_{i=s}^m \sum_{j=t}^n a_i c_j = (\sum_{i=s}^m a_i)(\sum_{j=t}^n c_j)$\\
+$\sum_{i=1}^n i = n(n+1)/2$ \qquad $\sum_{i=1}^n 2i-1 = n^2$\\
+$\sum_{i=0}^n log(i) = log(n!)$\qquad $\sum_{i=0}^{n-1} a^i=\frac{1-a^n}{1-a}$
+
 \subsection*{Derivatives}
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{b}^\top \mathbf{x}) = \frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{b}) = \mathbf{b}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$\\
