@@ -7,6 +7,7 @@ Binary Classification (Logistic):\\
 $\hat{y_1} = \text{P}[Y=1|\mathbf{x}] = \frac{1}{1 + \exp[-\langle \mathbf{w}_1^L,\mathbf{x}^{L-1}\rangle]}$\\
 Multiclass (Softmax):\\
 $\hat{y_k} = \text{P}[Y=k|\mathbf{x}]= \frac{\exp[\langle \mathbf{w}_k^L,\mathbf{x}^{L-1}\rangle]}{\sum_{m=1}^{K}{\exp[\langle \mathbf{w}_m^L, \mathbf{x}^{L-1}\rangle]}}$.\\
+(softmax: $\sigma(z)_j = e^{z_j}/\sum_{k=1}^K e^{z_k}$ for $j=1,\dots,K$)\\
 \textbf{Loss Function:} Squared Loss $\frac{1}{2}(y - \hat{y})^2$\\
 Cross-Entropy Loss: $-y \log \hat{y} - (1-y)\log(1-\hat{y})$.\\
 \textbf{Units \& Layers}: FW Prop: $\mathbf{x}^{l} = \sigma^{l}\left(\mathbb{W}^{\left(l\right)}\mathbf{x}^{\left(l-1\right)}\right)$. L-layer network: $\mathbf{y}=\sigma^{\left(L\right)}\left(\mathbf{W}^{(L)}\sigma^{(L-1)}\left(\cdots\left(\sigma^{(1)}\left(\mathbf{W}^{(1)}\mathbf{x}\right)\cdots\right)\right)\right)$
@@ -17,4 +18,14 @@ Multi-Layer (First FW, then BW):\\
 $\frac{\partial\mathbf{x}^{(l)}}{\partial\mathbf{x}^{(l-n)}} = \mathbf{J}^{(l)}\cdot\frac{\partial\mathbf{x}^{(l-1)}}{\partial\mathbf{x}^{(l-n)}}=\mathbf{J}^{(l)}\cdot\mathbf{J}^{(l-1)}\cdots\mathbf{J}^{(l-n+1)}$, then BP $ \nabla_{x^{(l)}}^\top\ell=\nabla_{y}^\top\ell\cdot\mathbf{J}^{(L)}\cdots\mathbf{J}^{(l+1)}$
 
 \subsection*{Convolutional Neural Networks}
-Translation invariance of images $\rightarrow$ neurons compute same func, shift invariant filters; weights defined as filter masks, e.g. convolution: $F_{n,m}(\mathbf{x};\mathbf{w}) = \sigma(b + \sum_{k=-2}^2\sum_{l=-2}^{2}{w_{k,l}x_{n+k,m+l}})$. To reduce dimension of convolution, use \{max, avg\}-pooling. Alternative: Strides (usually 2) on conv-layers for up/down-sampling.
+Translation invariance of images $\rightarrow$ neurons compute same func, shift invariant filters; weights defined as filter masks, e.g. convolution: $F_{n,m}(\mathbf{x};\mathbf{w}) = \sigma(b + \sum_{k=-2}^2\sum_{l=-2}^{2}{w_{k,l}x_{n+k,m+l}})$.\\
+$i',j'$ win. pos, $k$: win. size, $K$: weigths, $c$: chan.:\\
+ $(i\star K)_{i', j'} = \sum_c \sum_{-k\leq i,j \leq k} pad(X_c)_{i'+i,j'+j} \cdot(K_c)_{i,j}$\\
+Max-Pooling (size 3): $\max_{-1\leq i', j' \leq 1}(\cdot)_{i+i', j+j'}$ % TODO: Make prettier, remove $\cdot$ 
+
+\subsection*{ELBO}
+$\lambda^* = argmax_\lambda ELBO(\lambda)$ where $ELBO=$\\
+$log p(y,\theta) \geq E_q[log p(x^{1:L},y; \theta)-log q(x^{1:L}, y)]$
+
+\subsection*{Autoregressive models}
+$p(x)=\pi_{i=1}^{n^2} p(x_i|x_1,\dots ,x_{i-1})$
