@@ -29,9 +29,9 @@ $\Sigma_k^{(t)} = \frac{\sum_{n=1}^N q_{k, n} (\mathbf{x}_n - \boldsymbol{\mu}_k
 
 \subsection*{Gaussian distribution}
 Standard deviation $\sigma$, Mean $\mu$ \\
-$f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{- \frac{1}{2} \frac{(x-\mu)^2}{\sigma^2}}$\\
-Covariance matrix $\Sigma$, Mean $\mu$ \\
-$f(x) = \frac{1}{2\pi \sqrt{|\Sigma|}} e^{- \frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu)}$
+$f(x,\mu, \sigma^2) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{- \frac{1}{2} \frac{(x-\mu)^2}{\sigma^2}}$\\
+Covariance matrix $\Sigma$, Mean $\mu$ , $D$-dimensional:\\
+$f_D(x, \mu, \Sigma) = \frac{1}{\sqrt{(2\pi)^D det(\Sigma)}} e^{- \frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu)}$
 
 \subsection*{K-Means vs. EM (Discussion)}
 Hard vs soft assignment. Fixed spherical clusters vs variable covariance matrix. Fast vs slow and more iteration. K-means possible initialization for EM.\\

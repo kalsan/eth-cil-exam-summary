@@ -86,9 +86,11 @@ if $\mathbf{A}$ symmetric: $A = \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q^\top}$
 \begin{inparaitem}
 	\item $P(x) := Pr[X = x] := \sum_{y \in Y} P(x, y)$
 	\item $P(x|y) := Pr[X = x | Y = y] := \frac{P(x,y)}{P(y)},\quad \text{if } P(y) > 0$
-	\item $\forall y \in Y: \sum_{x \in X} P(x|y) = 1$ (property for any fixed $y$)
-	\item $P(x, y) = P(x|y) P(y)$
-	\item $P(x|y) = \frac{P(y|x)P(x)}{P(y)}$ (Bayes' rule)
-	\item $P(x|y) = P(x) \Leftrightarrow P(y|x) = P(y)$ (iff $X$, $Y$ independent)
+	\item $\forall y \in Y: \sum_{x \in X} P(x|y) = 1$ (for any fixed $y$)
+	\item Bayes: $P(x|y) = \frac{P(y|x)P(x)}{P(y)}$
+	\item ($x_i$ partition) $\Rightarrow P(y) = \sum_{i=1}^n P(y|x_i)\cdot P(x_i)$
+	\item $P(x|y) = P(x) \Leftrightarrow P(y|x) = P(y)$ (iff $X$, $Y$ ind.)
 	\item $P(x_1, \ldots, x_n) = \prod_{i=1}^n P(x_i)$ (iff IID)
+	\item $P(x \cup y)=P(x)+P(y)-P(x,y)$ (mut. excl: rm last term)
+	\item $P(x)=\sum_i P(x,y_i)$
 \end{inparaitem}
