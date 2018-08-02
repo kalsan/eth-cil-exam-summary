@@ -12,8 +12,8 @@ $p_\theta(\mathbf{x}, \mathbf{z}) = \prod_{k=1}^K \left( \boldsymbol{\pi}_k p_{\
 $p_\theta(\mathbf{X}) = \prod_{n=1}^N p_\theta(\mathbf{x}_n) = \prod_{n=1}^N \left(\sum_{k=1}^K \pi_k p_{\theta_k}(\mathbf{x}_n)\right)$
 \textbf{MLE (via Jensen's Inequality):}\\
 $\argmax_\theta\sum_{n=1}^N \log \left( \sum_{k=1}^K \pi_k p_{\theta_k}(\mathbf{x}_n)\right)\\
-\ge \sum_{n=1}^N \sum_{k=1}^K{q_k[\log p_{\theta_k}(\mathbf{x}_n) + \log \pi_k - \log q_k]}$\\
-with $\sum_{k=1}^K{q_k} = 1$ by Jensen Inequality.
+\ge \sum_{n=1}^N \sum_{k=1}^K{q_{kn}[\log p_{\theta_k}(\mathbf{x}_n) + \log \pi_k - \log q_{kn}]}$\\
+with $\forall n, \sum_{k=1}^K{q_{kn}} = 1$ by Jensen Inequality.
 
 \subsection*{Generative Model}
 1. Sample cluster index $j \sim Cat(\pi)$\\
@@ -29,9 +29,9 @@ $\Sigma_k^{(t)} = \frac{\sum_{n=1}^N q_{k, n} (\mathbf{x}_n - \boldsymbol{\mu}_k
 
 \subsection*{Gaussian distribution}
 Standard deviation $\sigma$, Mean $\mu$ \\
-$f(x,\mu, \sigma^2) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{- \frac{1}{2} \frac{(x-\mu)^2}{\sigma^2}}$\\
+$\mathcal{N}(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{- \frac{1}{2} \frac{(x-\mu)^2}{\sigma^2}}$\\
 Covariance matrix $\Sigma$, Mean $\mu$ , $D$-dimensional:\\
-$f_D(x, \mu, \Sigma) = \frac{1}{\sqrt{(2\pi)^D det(\Sigma)}} e^{- \frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu)}$
+$\mathcal{N}_D(x| \mu, \Sigma) = \frac{1}{\sqrt{(2\pi)^D det(\Sigma)}} e^{- \frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu)}$
 
 \subsection*{K-Means vs. EM (Discussion)}
 Hard vs soft assignment. Fixed spherical clusters vs variable covariance matrix. Fast vs slow and more iteration. K-means possible initialization for EM.\\
