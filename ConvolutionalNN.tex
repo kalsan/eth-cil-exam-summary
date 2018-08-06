@@ -20,7 +20,7 @@ $\frac{\partial\mathbf{x}^{(l)}}{\partial\mathbf{x}^{(l-n)}} = \mathbf{J}^{(l)}\
 \subsection*{Convolutional Neural Networks}
 Translation invariance of images $\rightarrow$ neurons compute same func, shift invariant filters; weights defined as filter masks, e.g. convolution: $F_{n,m}(\mathbf{x};\mathbf{w}) = \sigma(b + \sum_{k=-2}^2\sum_{l=-2}^{2}{w_{k,l}x_{n+k,m+l}})$.\\
 $i',j'$ win. pos, $k$: win. size, $K$: weigths, $c$: chan.:\\
- $(I\star K)_{i', j'} = \sum_c \sum_{-k\leq i,j \leq k} pad(X_c)_{i'+i,j'+j} \cdot(K_c)_{i,j}$\\
+ $(I\star K^l)_{i', j'} = \sum_c \sum_{-k\leq i,j \leq k} pad(I_c)_{i'+i,j'+j} \cdot(K_c^l)_{i,j}$\\
 Max-Pooling (size 3): $\max_{-1\leq i', j' \leq 1}(\cdot)_{i+i', j+j'}$ % TODO: Make prettier, remove $\cdot$ 
 
 \subsection*{ELBO}

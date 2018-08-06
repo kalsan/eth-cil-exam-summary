@@ -15,6 +15,9 @@ $(\mathbf{D}^{-1})_{i,i} = \frac{1}{\mathbf{D}_{i, i}}$ (don't forget to transpo
 \subsection*{Low-Rank approximation}
 Using only $K$ largest eigenvalues and corresponding eigenvectors. $\tilde{\mathbf{A}}_{i, j} = \sum_{k=1}^K \mathbf{U}_{i, k} \mathbf{D}_{k,k} \mathbf{V}_{j, k} = \sum_{k=1}^K \mathbf{U}_{i, k} \mathbf{D}_{k,k} (\mathbf{V}^\top)_{k, j}$.
 
+\subsection*{Collaborative Filtering \textendash\ Prediction}
+For $\mathbf{U}, \mathbf{V}$ (Movie-/User-embedding) use $k$-rank approx (fill up dimensions). Predict user preferences: $\mathbf{U_k} \mathbf{U_k^T} b$.
+
 \subsection*{Echart-Young Theorem}
 $\min_{rank(B)=K} ||A-B||_F^2 = ||A-A_k||_F^2 = \sum_{r=k+1}^{rank(A)} \sigma_r^2$
 $\min_{rank(B)=K} ||A-B||_2 = ||A-A_k||_2 = \sigma_{k+1}$
